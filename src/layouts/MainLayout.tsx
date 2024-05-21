@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren } from "react";
+import { FunctionComponent, PropsWithChildren, useState } from "react";
 import { Inter } from "next/font/google";
 import classNames from "classnames";
 import { Button } from "@/components/Button";
@@ -11,6 +11,12 @@ type MainLayoutProps = {};
 export const MainLayout: FunctionComponent<
   PropsWithChildren<MainLayoutProps>
 > = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
+
+  const handleButtonClick = (btn: string) => {
+    setSelectedButton(btn === selectedButton && btn !== "PersonA" ? null : btn);
+  };
+
   return (
     <main
       className={classNames(
@@ -21,9 +27,15 @@ export const MainLayout: FunctionComponent<
     >
       <div className={classNames("flex gap-2")}>
         {Object.values(Person).map((person) => (
-          <Button key={person}>{person}</Button>
+          <Button
+            key={person}
+            handleButtonClick={() => handleButtonClick(person)}
+            selectedButton={selectedButton}
+            buttonType={person}
+          >
+            {person}
+          </Button>
         ))}
-        <button />
       </div>
     </main>
   );
