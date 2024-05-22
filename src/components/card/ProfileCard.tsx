@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface ProfileCardProps {
@@ -11,7 +12,15 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ imageSrc, name, title }) => {
     <>
       <div className="profile-card">
         <div className="profile-card__image">
-          <img src={imageSrc} alt={name} />
+          <Image
+            src={imageSrc}
+            alt="profile-image"
+            sizes="300px"
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+          />
         </div>
         <h2 className="profile-card__name">{name}</h2>
         <p className="profile-card__title">{title}</p>
@@ -39,11 +48,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ imageSrc, name, title }) => {
             margin: 10px;
             text-align: center;
           }
-          .profile-card__image img {
+          .profile-card__image {
             width: 100px;
             height: 100px;
+            position: relative;
             border-radius: 50%;
-            object-fit: cover;
+            overflow: hidden;
           }
           .profile-card__name {
             margin-top: 10px;

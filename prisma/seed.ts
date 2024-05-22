@@ -1,16 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 import { mockUsers } from "@/utils/server/mock-users";
-import { Person, User } from "@/utils/common/person";
+import { IPerson } from "@/types/person";
+import { Person } from "@/utils/common/person";
 
 const prisma = new PrismaClient();
 
 async function main() {
   // TODO: Add mock users
   // await prisma.user.create({
-  //   data: mockUsers[Person.PersonA] as unknown as User,
+  // data: mockUsers[Person.PersonA] as unknown as IPerson,
   // });
   // await prisma.user.create({
-  //   data: mockUsers[Person.PersonB] as unknown as User,
+  //   data: mockUsers[Person.PersonB] as unknown as IPerson,
   // });
 }
 
