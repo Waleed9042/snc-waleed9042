@@ -14,11 +14,28 @@ datasource db {
 }
 
 model User {
-  id                 Int    @id @default(autoincrement())
+  id                 Int      @id @default(autoincrement())
   backgroundImageUrl String
   profilePictureUrl  String
-  name               String @db.VarChar(100)
-  title              String @db.VarChar(100)
+  name               String   @db.VarChar(100)
+  title              String   @db.VarChar(100)
   followers          Int
   following          Int
+  companies          CompanyUser[]
+}
+
+model Company {
+  id      Int     @id @default(autoincrement())
+  name    String
+  users   CompanyUser[]
+}
+
+model CompanyUser {
+  id        Int     @id @default(autoincrement())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  company   Company @relation(fields: [companyId], references: [id])
+  companyId Int
+
+  @@unique([userId, companyId])
 }
