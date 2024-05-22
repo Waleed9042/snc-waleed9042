@@ -16,7 +16,9 @@
     "prettier": "^3.2.4",
     "react": "^18",
     "react-dom": "^18",
-    "tw-merge": "^0.0.1-alpha.3"
+    "tw-merge": "^0.0.1-alpha.3",
+    "axios": "^1.7.2",
+    "react-loading-skeleton": "^3.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",
