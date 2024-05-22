@@ -23,7 +23,7 @@ export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> = ({
     <button
       type="button"
       className={classNames(
-        `px-2 py-1 border border-black bg-white text-black ${selectedButton === buttonType ? "bg-purple-700" : ""}`,
+        `px-2 py-1 border border-black text-black ${selectedButton === buttonType ? "bg-purple-700" : "bg-white"}`,
       )}
       onClick={handleButtonClick}
     >
