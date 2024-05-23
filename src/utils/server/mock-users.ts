@@ -1,6 +1,7 @@
-import { Person, User } from "@/utils/common/person";
+import { IPerson } from "@/types/person";
+import { Person } from "@/utils/common/person";
 
-export const mockUsers: { [key in Person]: User | null } = {
+export const mockUsers: { [key in Person]: IPerson | null } = {
   [Person.PersonA]: {
     backgroundImageUrl:
       "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80",
