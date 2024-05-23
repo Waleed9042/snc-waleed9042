@@ -6,6 +6,8 @@ const useLogPersonDetails = (
   enableLogs: boolean,
   currentTime: string,
 ) => {
+  //storing the current time in a ref because I dont want my app to re-render every time
+  //the current time updates
   const currentTimeRef = useRef(currentTime);
   useEffect(() => {
     currentTimeRef.current = currentTime;

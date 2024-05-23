@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// This service makes sure we resolve the latest request only
+// and any previous requests which are not resolved should be
+// cancelled.
 const APIService = () => {
   const [cancelToken, setCancelToken] = useState(axios.CancelToken.source());
 

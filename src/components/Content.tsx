@@ -15,9 +15,9 @@ import useCurrentTime from "@/utils/hooks/useCurrentTime";
 const Content = () => {
   const apiService = APIService();
   const { enableLogs } = useAppContext();
-  const [selectedButton, setSelectedButton] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(false);
   const { currentTime } = useCurrentTime();
+  const [selectedButton, setSelectedButton] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [apiResponseState, setApiResponseState] = useState<{
     data: IPerson | null;
     isError: boolean;
@@ -31,6 +31,7 @@ const Content = () => {
   });
 
   useLogPersonDetails(apiResponseState?.data, enableLogs, currentTime);
+
   const resetResponseState = () => {
     setApiResponseState({
       isError: false,
@@ -39,7 +40,9 @@ const Content = () => {
       data: null,
     });
   };
+
   const handleButtonClick = (btn: string) => {
+    //When the first one is selected, it can only be unselected by selecting another one.
     setSelectedButton(btn === selectedButton && btn !== "PersonA" ? "" : btn);
     if (selectedButton !== btn) {
       fetchEntityData(btn);
